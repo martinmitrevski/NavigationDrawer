@@ -1,0 +1,24 @@
+{
+	"menuItems" : [
+		{
+			"title" : "First menu item",
+			"remoteUrl" : "http://google.com"
+		},
+		{
+			"title" : "Second menu item",
+			"remoteUrl" : "http://apple.com"
+		},
+		{
+			"title" : "Third menu item",
+			"remoteUrl" : "http://time.mk"
+		},
+		{
+			"title" : "Fourth menu item",
+			"remoteUrl" : "http://goal.com"
+		},
+		{
+			"title" : "First menu item",
+			"remoteUrl" : "http://yahoo.com"
+		}
+	]
+}

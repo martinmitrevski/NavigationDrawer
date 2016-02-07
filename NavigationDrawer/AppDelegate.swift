@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import MMDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var drawerController: MMDrawerController?
+    var menuViewController: MenuViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        menuViewController = MenuViewController(nibName: "MenuViewController", bundle: NSBundle.mainBundle());
+        let navigationController = menuViewController?.viewControllers()[0]
+        drawerController = MMDrawerController(centerViewController: navigationController,
+            leftDrawerViewController: menuViewController)
+        drawerController?.openDrawerGestureModeMask = .All
+        drawerController?.closeDrawerGestureModeMask = .All
+        menuViewController?.drawerController = drawerController
+        let webViewController = navigationController?.topViewController as! WebViewController
+        webViewController.drawerController = drawerController
+        
+        let frame = UIScreen.mainScreen().bounds
+        window = UIWindow(frame: frame)
+        
+        window!.rootViewController = drawerController
+        window!.makeKeyAndVisible()
+        
         return true
     }
 
